@@ -6,6 +6,8 @@ on:
 jobs:
   process:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Check for required secrets
@@ -23,7 +25,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Check for feeds.json
